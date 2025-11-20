@@ -9,4 +9,6 @@ public interface ITaskItemService
     Task<TaskItemResponse> GetTaskByIdAsync(int id);
     Task<TaskItemResponse> UpdateTask(int id, TaskItemUpdateRequest item);
     Task<bool> DeleteTask(int id);
+    
+    Task<List<TaskItemResponse>> GetAllItemsByStatus(String status);
 }

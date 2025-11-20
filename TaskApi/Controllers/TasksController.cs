@@ -83,5 +83,13 @@ public class TasksController : ControllerBase
         
         return result ? Ok() : NotFound();
     }
+
+    [HttpGet("Status/{status}")]
+    public async Task<ActionResult<List<TaskItemResponse>>> getTasksByStatus(string status)
+    {
+        var tasks = await _service.GetAllItemsByStatus(status);
+        
+        return Ok(tasks);
+    }
     
 }

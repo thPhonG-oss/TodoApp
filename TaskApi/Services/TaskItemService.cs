@@ -95,4 +95,11 @@ public class TaskItemService : ITaskItemService
         int effectedRows = await _repo.SaveChangesAsync();
         return effectedRows > 0;
     }
+
+    public async Task<List<TaskItemResponse>> GetAllItemsByStatus(String status)
+    {
+        var tasks = await _repo.GetTaskItemsByStatus(status);
+        
+        return _mapper.Map<List<TaskItemResponse>>(tasks);
+    }
 }

@@ -39,4 +39,18 @@ public class TaskItemRepository : ITaskItemRepository
     public void Delete(TaskItem item) => _dbContext.TaskItems.Remove(item);
     
     public async Task<int> SaveChangesAsync() => await  _dbContext.SaveChangesAsync();
+
+    public async Task<List<TaskItem>> GetTaskItemsByStatus(string status)
+    {
+        var queryable =  _dbContext.TaskItems.AsQueryable();
+
+        if (!string.IsNullOrEmpty(status))
+        {
+            queryable = queryable.Where((t => t.Status == status));
+        }
+
+        var tasks = await queryable.OrderBy(t => t.Id).ToListAsync();
+
+        return tasks;
+    }
 }
