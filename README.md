@@ -41,6 +41,7 @@
 
 ```bash
 git clone https://github.com/thPhonG-oss/TodoApp
+cd TodoApp
 cd TaskApi
 ```
 
