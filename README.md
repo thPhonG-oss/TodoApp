@@ -79,11 +79,6 @@ Migration đã có sẵn trong project, chỉ cần apply:
 dotnet ef database update
 ```
 
-Nếu muốn tạo migration mới (không bắt buộc):
-
-```bash
-dotnet ef migrations add MigrationName
-```
 
 #### Bước 6: Chạy backend
 
@@ -93,7 +88,7 @@ dotnet run
 
 Backend sẽ chạy tại:
 
-- HTTP: `http://localhost:5000`
+- HTTP: `http://localhost:5093`
 
 ### 2️⃣ Setup Frontend
 
@@ -114,7 +109,7 @@ npm install
 Mở file `src/api/axiosClient.js` và đảm bảo `baseURL` đúng với backend:
 
 ```javascript
-baseURL: "http://localhost:5000/api";
+baseURL: "http://localhost:5093/api";
 ```
 
 #### Bước 4: Chạy frontend
